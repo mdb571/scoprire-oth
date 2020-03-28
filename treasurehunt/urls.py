@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.views.static import serve
 from django.conf.urls.static import static
+from django.conf import settings
 app_name = 'treasurehunt'
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
     path('leaderboard/', views.leaderboard, name='leaderboard')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
