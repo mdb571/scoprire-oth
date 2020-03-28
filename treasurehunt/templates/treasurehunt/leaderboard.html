@@ -1,12 +1,13 @@
 {% extends "treasurehunt/base.html" %}
 {% block content %}
 {% load static %}
-<br><br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br>
 
 <section class="category-section spad">
     <div class="container-fluid">
         <div class="section-title">
-            <h2>Leaderboard</h2>
+            <h2 class="leaderboard">Leaderboard</h2>
         </div>
         <div class="container">
             <div class="category-links">
@@ -20,20 +21,20 @@
 </section>
 
 
-<center>
-    <table style="border: 2px solid white;">
-        <tr>
-            <th style="border: 2px solid white;padding: 15px;">Username</th>
-            <th style="border: 2px solid white;padding: 15px;">Score</th>
-        </tr>
-        {% for x,y in user_name  %}
-        <tr>
-            <td style="border: 2px solid white; text-align :center;padding: 15px;">{{x}}</td>
-            <td style="border: 2px solid white;text-align :center;padding: 15px;">{{y}}</td>
-        </tr>
-        {% endfor %}
-
+<style type="text/css">
+    .tftable {font-size:12px;color:#fbfbfb;width:100%;border-width: 1px;border-color: #686767;border-collapse: collapse;}
+    .tftable th {font-size:12px;background-color:#060c1a;;border-width: 1px;padding: 8px;border-style: solid;border-color: #686767;text-align:left;}
+    .tftable tr {background-color:#1a2645;}
+    .tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #686767;}
+    .tftable tr:hover {background-color:#060c1a;}
+</style>
+    
+    <table class="tftable" border="1">
+    <tr><th><strong>Username</strong></th><th><strong>Score</strong></th></tr>
+    {% for x,y in user_name  %}
+    <tr><td>{{x}}</td><td>{{y}}</td></tr>
+    
+    {% endfor %}
     </table>
-</center>
 
 {% endblock content %}
