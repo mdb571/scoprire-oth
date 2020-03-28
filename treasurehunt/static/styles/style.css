@@ -839,14 +839,7 @@ Premium section
 	margin-bottom: 0;
 }
 
-.my-custom-scrollbar {
-	position: relative;
-	height: 200px;
-	overflow: auto;
-	}
-.table-wrapper-scroll-y {
-	display: block;
-	}
+
 /* ----------------
 Responsive
  -------------------*/

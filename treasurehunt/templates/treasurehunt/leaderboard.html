@@ -119,10 +119,11 @@
         .tftable {
             font-size: 12px;
             color: #fbfbfb;
-            width: 100%;
+            width: 97%;
             border-width: 1px;
             border-color: #686767;
             border-collapse: collapse;
+            align-content: center;
         }
 
         .tftable th {
@@ -153,20 +154,22 @@
         }
     </style>
 
-    <table class="tftable" border="1">
-        <tr>
-            <th><strong>Username</strong></th>
-            <th><strong>Score</strong></th>
-        </tr>
-        {% for x,y in user_name  %}
-        <tr>
-            <td>{{x}}</td>
-            <td>{{y}}</td>
-        </tr>
+    <section style="padding-top: 25Px;padding-left: 3%;">
+        <table class="tftable" border="1">
+            <tbody>
+                <tr>
+                    <th><strong>Username</strong></th>
+                    <th><strong>Score</strong></th>
+                </tr>
+                {% for x,y in user_name  %}
+                <tr>
+                    <td>{{x}}</td>
+                    <td>{{y}}</td>
+                </tr>
 
-        {% endfor %}
-    </table>
-
+                {% endfor %}
+        </table>
+    </section>
 
 
     <footer class="footer">
