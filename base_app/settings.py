@@ -33,7 +33,7 @@ SECRET_KEY = 'v2me!)*-^k!hkug&%k&x9n4haz!u47ej+i-c72%f6!e!kh6kl2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','ectreasurehunt.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0','ectreasurehunt.herokuapp.com','scoprire.herokuapp.com']
 
 # Application definition
 
