@@ -2,7 +2,15 @@
 {% block content %}
 {% load static %}
 
-<div class="intro">
-</div>
+<div class="row">
+						
+    <div class="col-lg-6">
+        <div class="text-left">
+            <h2><span>The Hunt</span> is on..!!</h2>
+            <!-- <p>Lets the hunt begin </p> -->
+            <a href="{% url 'treasurehunt:question' %}" class="">Start Quiz</a><br><br><br>
+            <a href="{% url 'treasurehunt:leaderboard' %}" class="">Leaderboard</a>
+        </div>
+    </div>
 
 {% endblock content %}

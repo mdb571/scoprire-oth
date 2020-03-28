@@ -4,15 +4,24 @@
 <br><br><br><br><br>
 <!-- Login Container -->
 <div class="login">
-  <form action="{% url 'treasurehunt:login' %}" method="post">
+  <form class="contact-from" action="{% url 'treasurehunt:login' %}" method="post">
     <div class="container">
       {% csrf_token %}
       <h1>Login</h1>
+      <br>
       <p>Login to your account using your credentials.</p>
       <hr>
+      <div class="col-md-6">
       <input class="text" type="text" name="username" placeholder="Username" required="">
+      </div>
+      <div class="col-md-6">
       <input class="text" type="password" name="password" placeholder="Password" required="">
+      </div>
+      <br>
+      <br>
+      <div class="btn btn-default text-primary">
       <input type="submit" value="Login">
+      </div>
       <br>
       <br>
       <hr>
