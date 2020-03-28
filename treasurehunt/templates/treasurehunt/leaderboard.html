@@ -1,0 +1,29 @@
+{% extends "treasurehunt/base.html" %}
+{% block content %}
+{% load static %}
+<br><br><br><br><br>
+<div class="container">
+    <center>
+        <strong>
+            <h2>Leaderboard</h2>
+        </strong>
+    </center>
+    <center>
+        <h5>
+            <table style="border: 2px solid black;">
+                <tr>
+                    <th style="border: 2px solid black;padding: 15px;">Username</th>
+                    <th style="border: 2px solid black;padding: 15px;">Score</th>
+                </tr>
+                {% for x,y in user_name  %}
+                <tr>
+                    <td style="border: 2px solid black; text-align :center;padding: 15px;">{{x}}</td>
+                    <td style="border: 2px solid black;text-align :center;padding: 15px;">{{y}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </h5>
+    </center>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title>Online Treasure Hunt | An event of I-Conclave 20'</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/style.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/style2.css'%}">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="icon" href="{% static 'images/demo-g.jpg'%}" type="image/jpg" sizes="16x16">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+		id="bootstrap-css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- Navbar Section -->
+	<div class="mynavbar">
+		<nav role='navigation'>
+			<span class="logo"><a href="{% url 'treasurehunt:index' %}">I - Conclave</a></span>
+			<ul>
+				<li><a href="{% static 'files/Rules.pdf'%}" target="_blank" rel="noopener noreferrer">Rules</a></li>
+				<li><a href="{% url 'treasurehunt:leaderboard' %}">LeaderBoard</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="{% url 'treasurehunt:question' %}">Question</a></li>
+				<li><a href="#" style="text-transform: none;">Score : {{score}}
+					</a></li>
+				<li><a href="{% url 'treasurehunt:logout' %}">Logout</a></li>
+				{% else %}
+				<li><a href="{% url 'treasurehunt:register' %}">Register</a></li>
+				<li><a href="{% url 'treasurehunt:login' %}">Login</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</div>
+	<!-- End Navbar Section -->
+	<br><br><br><br><br>
+	<div class="container">
+		<h2>Problem Statement :</h2>
+		<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt="">
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{question_form.as_p}}
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+
+.myButton {
+	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:20px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+	margin-left:13vw;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+	color:#000;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.mynavbar *, *:before, *:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size:15px;
+}
+
+/*| Navigation |*/
+.mynavbar span.logo a
+{
+	position:fixed;
+	top:15px;
+	left:50px;
+	float:left;
+	font-size:2.4em;
+	font-family: 'Bangers', cursive;
+	font-weight:bold;
+	text-decoration:none;
+	color:#000;
+}
+
+.mynavbar nav
+{
+	z-index:1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  opacity:0.7;
+  box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+  display:block;
+}
+
+.mynavbar nav ul
+{
+    list-style: none;
+    position: relative;
+    float: right;
+    margin-right: 75px;
+    display: inline-table;
+}
+    
+.mynavbar nav ul li	
+{
+    float: left;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.mynavbar nav ul li:hover{background: rgba(0,0,0,.15);}
+.mynavbar nav ul li:hover > ul{display: block;}
+.mynavbar nav ul li
+{
+     float: left;
+     -webkit-transition: all .2s ease-in-out;
+     -moz-transition: all .2s ease-in-out;
+     transition: all .2s ease-in-out;
+}
+     
+.mynavbar nav ul li a
+{
+    display: block; 
+    padding: 30px 70px;
+    color: #000; 
+	font-size: 1em;
+	font-weight:bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+      
+.mynavbar nav ul ul
+{
+    display: none;
+	background: #fff;
+	position: absolute; 
+	top: 100%;
+	box-shadow: -3px 3px 10px -2px rgba(0,0,0,.1);
+	border: 1px solid rgba(0,0,0,.1);
+}
+        
+.mynavbar nav ul ul li
+{
+	float: none; 
+	position: relative;
+}     
+   
+.mynavbar nav ul ul li a
+{
+    padding: 15px 30px; 
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+          
+.mynavbar nav ul ul ul 
+{
+    position: absolute; 
+    left: 100%; 
+    top:0;
+}	
+
+/*Rotating text Section*/
+
+.marquee-bar
+{
+  height:4vh;
+  width:100%;
+  background-color:#485d69;
+  color: #fff;
+  padding:0;
+  border-bottom: 0px solid white;
+  
+}
+/*End Rotating text Section*/
+
+/*Intro Section*/
+.intro
+{
+  display: table;
+  width: 100%;
+  height:100vh;
+  background: url(../images/back.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-text
+{
+  width:50%;
+  height:100%;
+  padding-left: 30px;
+  font-size: 60px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  color:#fff;
+  vertical-align: middle;
+  display: table-cell;
+  }
+
+/*END Intro Section*/
+
+p
+{
+	line-height:1.6;
+}

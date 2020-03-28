@@ -1,0 +1,25 @@
+{% extends "treasurehunt/base.html" %}
+{% block content %}
+{% load static %}
+<br><br><br><br><br>
+<!-- Login Container -->
+<div class="login">
+  <form action="{% url 'treasurehunt:login' %}" method="post">
+    <div class="container">
+      {% csrf_token %}
+      <h1>Login</h1>
+      <p>Login to your account using your credentials.</p>
+      <hr>
+      <input class="text" type="text" name="username" placeholder="Username" required="">
+      <input class="text" type="password" name="password" placeholder="Password" required="">
+      <input type="submit" value="Login">
+      <br>
+      <br>
+      <hr>
+      <p>Not a member ? <a href="{% url 'treasurehunt:register' %}">Sign Up </a></p>
+
+    </div>
+  </form>
+</div>
+<!-- Login Container End -->
+{% endblock content %}

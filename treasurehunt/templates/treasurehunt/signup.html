@@ -1,0 +1,58 @@
+{% extends "treasurehunt/base.html" %}
+{% block content %}
+{% load static %}
+<br><br><br><br><br>
+
+<!-- Login Container -->
+<div class="login">
+  <form method="POST">
+    <div class="container">
+
+      {% if registered %}
+      <h1>Thank You for Registering!</h1>
+      <br>
+      <br>
+
+      <a href="{% url 'treasurehunt:login' %}" class="NotmyButton">Log In</a>
+      {% else %}
+      <h1>Register</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.non_field_errors }}
+        <div class="fieldWrapper">
+          {{ user_form.username.errors }}
+          <label class="whitecolor" for="{{ user_form.username.id_for_label }}">Username:</label>
+          {{ user_form.username }}
+        </div>
+        <br>
+        <div class="fieldWrapper">
+          {{ user_form.email.errors }}
+          <label class="whitecolor" for="{{ user_form.email.id_for_label }}">Email:</label>
+          {{ user_form.email }}
+        </div>
+        <br>
+        <div class="fieldWrapper">
+          {{ user_form.password.errors }}
+          <label class="whitecolor" for="{{ user_form.password.id_for_label }}">Password:</label>
+          {{ user_form.password }}
+        </div>
+        <br>
+        <div class="fieldWrapper">
+          {{ user_form.confirm_password.errors }}
+          <label class="whitecolor" for="{{ user_form.confirm_password.id_for_label }}">Confirm Password:</label>
+          {{ user_form.confirm_password }}
+        </div>
+        <br>
+        <input type="submit" value="SIGNUP">
+      </form>
+
+      <p>Already a member ? <a href="{% url 'treasurehunt:login' %}">Login Here .</a></p>
+      <hr>
+      {% endif %}
+    </div>
+  </form>
+</div>
+<!-- Login Container End -->
+{% endblock content %}
