@@ -22,6 +22,8 @@ HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'treasurehunt/static/js', 'serviceworker.js')
+
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'treasurehunt/templates/treasurehunt')
 
 # Quick-start development settings - unsuitable for production
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'treasurehunt',
+    'pwa',
 ]
 
 MIDDLEWARE = [

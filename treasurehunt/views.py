@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def index(request):
@@ -63,7 +64,7 @@ def user_login(request):
         else:
             print("Someone tried to login and failed")
             print("UserName : {} and password {} ".format(username, password))
-            return HttpResponse("Invalid Login Details")
+            return HttpResponse("Invalid Login Deta.ils")
     else:
         return render(request, 'treasurehunt/login.html')
 
@@ -86,9 +87,9 @@ def question(request):
     current_user = request.user
     sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
-    if sc.score == 14:
+    if sc.score == 30:
         return HttpResponse(
-            "<h1>Congratulations on Completing The Treasure Hunt</h1>")
+            "<h3>Congratulations on Completing SCOPRIRE.Pls contact moderator with this screenshot to claim your prize</h3>")
     else:
         if request.method == 'POST':
             question_form = forms.Answer(data=request.POST)

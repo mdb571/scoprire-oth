@@ -3,6 +3,15 @@
 {% load static %}
 <br><br><br><br><br>
 <!-- Login Container -->
+{% for message in messages %}
+
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+
+    {{ message }}
+
+</div>
+{% endfor %}
 <div class="login">
   <form class="contact-from" action="{% url 'treasurehunt:login' %}" method="post">
     <div class="container">

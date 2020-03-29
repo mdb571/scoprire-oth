@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+{% load pwa %}
 {% load static%}
 <html lang="zxx">
 
 <head>
+    {% progressive_web_app_meta %}
     <title>SCOPRIRE | The Online-Treasure-Hunt for EZIANZ!</title>
     <meta charset="UTF-8">
-    <meta name="description" content="ECE Treasure Hunt">
+    <meta name="description" content="SCOPRIRE-The unofficial treasure hunt">
     <meta name="keywords" content="Quiz, Treasure Hunt">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Favicon -->
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
     <!-- TODO -->

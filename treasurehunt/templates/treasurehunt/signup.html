@@ -22,9 +22,10 @@
       <br>
       <p>Please fill in this form to create an account.</p>
       <hr>
-      <form  method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.non_field_errors }}
+        
         <div class="">
           {{ user_form.username.errors }}
           <label class="whitecolor" for="{{ user_form.username.id_for_label }}">Username:</label>
@@ -45,7 +46,7 @@
         <br>
         <div class="fieldWrapper">
           {{ user_form.confirm_password.errors }}
-          <label class="whitecolor " for="{{ user_form.confirm_password.id_for_label }}">Confirm Password:</label>
+          <label class="whitecolor" for="{{ user_form.confirm_password.id_for_label }}">Confirm Password:</label>
           {{ user_form.confirm_password }}
         </div>
         <br>
