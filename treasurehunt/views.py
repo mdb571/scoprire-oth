@@ -64,9 +64,12 @@ def user_login(request):
         else:
             print("Someone tried to login and failed")
             print("UserName : {} and password {} ".format(username, password))
-            return HttpResponse("Invalid Login Deta.ils")
+            return HttpResponse("Invalid Login Details")
     else:
         return render(request, 'treasurehunt/login.html')
+
+def invalid_login(request):
+    return render(request,'treasurehunt/invalidlogin.html')
 
 
 @login_required

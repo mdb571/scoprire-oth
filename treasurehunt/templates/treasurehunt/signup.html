@@ -7,7 +7,7 @@
 
 <!-- Login Container -->
 <div class="login">
-  <form method="POST">
+  <form class="contact-from col-md-6"  method="POST">
     <div class="container">
 
       {% if registered %}
@@ -35,7 +35,7 @@
         <div class="fieldWrapper">
           {{ user_form.email.errors }}
           <label class="whitecolor" for="{{ user_form.email.id_for_label }}">Email:</label>
-          {{ user_form.email }}
+          {{ user_form.email}}
         </div>
         <br>
         <div class="fieldWrapper">
@@ -52,7 +52,7 @@
         <br>
         <br>
         
-        <input class="col-md-3 btn btn-outline-primary" type="submit" value="SIGNUP">
+        <input class="btn btn-outline-primary col-md-3" type="submit" value="SIGNUP">
       </form>
 
       <p>Already a member ? <a href="{% url 'treasurehunt:login' %}">Login Here .</a></p>
