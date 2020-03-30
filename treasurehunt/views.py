@@ -89,6 +89,7 @@ def question(request):
     current_user = request.user
     sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
+    
     if sc.score == 30:
         return HttpResponse(
             "<h3>Congratulations on Completing SCOPRIRE.Pls contact our skilter representative Johnjo Benny with this screenshot to claim your prize</h3>")
@@ -99,6 +100,7 @@ def question(request):
                 ans = question_form.cleaned_data['answer']
                 if ans.lower() == ans_fixed.ans_value():
                     sc.score = sc.score + 1
+
                     sc.save()
                 else:
                     return render(
@@ -126,6 +128,7 @@ def question(request):
 
 def leaderboard(request):
     leader = models.Score.objects.all().order_by('-score')
+    
     if len(leader) >= 10:
         user_name = []
         for x in leader:

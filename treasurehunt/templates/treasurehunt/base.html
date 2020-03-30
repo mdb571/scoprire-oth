@@ -5,7 +5,11 @@
 
 <head>
     {% progressive_web_app_meta %}
+    {% if user.is_authenticated %}
+    <title>Your Score: {{score}}</title>
+    {% else %}
     <title>SCOPRIRE | The Online-Treasure-Hunt for EZIANZ!</title>
+    {% endif %}
     <meta charset="UTF-8">
     <meta name="description" content="SCOPRIRE-The unofficial treasure hunt">
     <meta name="keywords" content="Quiz, Treasure Hunt">
@@ -46,7 +50,11 @@
             SCOPRIRE
         </a>
         <div class="header-right">
+            {% if user.is_authenticated %}
+            <a href="#" class="login">Your Score: {{score}}</a>
+            {% else %}
             <a href="{% static 'files/Rules.pdf'%}" class="hr-btn">Rules</a>
+            {% endif %}
             <span>|</span>
             <div class="user-panel">
                 {% if user.is_authenticated %}
