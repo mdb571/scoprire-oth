@@ -17,17 +17,15 @@
 
       <a href="{% url 'treasurehunt:login' %}" class="NotmyButton">Log In</a>
       {% else %}
-      <h1>Register</h1>
-      <br>
-      <br>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.non_field_errors }}
         
         <div class="">
           {{ user_form.username.errors }}
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <h2>Register</h2>
+         <p>Please fill in this form to create an account.</p>
           <label class="whitecolor" for="{{ user_form.username.id_for_label }}">Username:</label>
           {{ user_form.username }}
         </div>

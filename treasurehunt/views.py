@@ -82,17 +82,16 @@ def user_logout(request):
 def question(request):
 
     question_fixed = [
-        '0', '1', '2', '3', '4', '5wopeiqweoj', '6XYyxasydyaanmp',
-        '7dwqeqpdsaaqQ', '8Qweqewqdsapoi', '9dsawqQwqe', '10QASawqeadsp',
-        '11IUoiruwefhdsl', '12IYRUEHDSnakhqw', '13KLJcmnxwqeg'
-    ]
+        '0', '1', '2', '3', '4', '5', '6',
+        '7', '8', '9', '10',
+        '11', '12', '13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29'  ]
 
     current_user = request.user
     sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     if sc.score == 30:
         return HttpResponse(
-            "<h3>Congratulations on Completing SCOPRIRE.Pls contact moderator with this screenshot to claim your prize</h3>")
+            "<h3>Congratulations on Completing SCOPRIRE.Pls contact our skilter representative Johnjo Benny with this screenshot to claim your prize</h3>")
     else:
         if request.method == 'POST':
             question_form = forms.Answer(data=request.POST)
