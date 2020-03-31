@@ -127,7 +127,7 @@ def question(request):
 
 
 def leaderboard(request):
-    leader = models.Score.objects.all().order_by('-score')
+    leader = models.Score.objects.all().order_by('-score',)
     
     if len(leader) >= 10:
         user_name = []
