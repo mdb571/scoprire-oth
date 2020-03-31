@@ -4,6 +4,6 @@ This is a basic django web app for an Online treasure hunt.The front end was don
 
 Here are a few screenshots of the project:
 
-![Home](img1.jpeg)
-![Leaderboard](img2.jpeg.jpg)
+![Home](img1.png)
+![Leaderboard](imh1.png)
 
