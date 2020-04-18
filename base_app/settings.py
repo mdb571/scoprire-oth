@@ -30,10 +30,13 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'treasurehunt/templates/treasurehunt')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v2me!)*-^k!hkug&%k&x9n4haz!u47ej+i-c72%f6!e!kh6kl2'
+# SECRET_KEY = 'v2me!)*-^k!hkug&%k&x9n4haz!u47ej+i-c72%f6!e!kh6kl2'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v2me!)*-^k!hkug&%k&x9n4haz!u47ej+i-c72%f6!e!kh6kl2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','ectreasurehunt.herokuapp.com','scoprire.herokuapp.com']
 
@@ -54,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -133,6 +137,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 LOGIN_URL = '/login/'

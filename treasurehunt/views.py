@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+import datetime
+import time
 
 def index(request):
     return render(request, 'treasurehunt/index.html')
@@ -100,7 +101,7 @@ def question(request):
                 ans = question_form.cleaned_data['answer']
                 if ans.lower() == ans_fixed.ans_value():
                     sc.score = sc.score + 1
-
+                    sc.timestamp = datetime.datetime.now()
                     sc.save()
                 else:
                     return render(
@@ -127,19 +128,19 @@ def question(request):
 
 
 def leaderboard(request):
-    leader = models.Score.objects.all().order_by('-score',)
+    leader = models.Score.objects.all().order_by('-score','timestamp')
     
     if len(leader) >= 10:
         user_name = []
         for x in leader:
-            user_name.append((x.user.username, x.score))
+            user_name.append((x.user.username, x.score,x.timestamp))
         return render(request, 'treasurehunt/leaderboard.html', {
             'user_name': user_name,
         })
     else:
         user_name = []
         for x in leader:
-            user_name.append((x.user.username, x.score))
+            user_name.append((x.user.username, x.score,x.timestamp))
         return render(request, 'treasurehunt/leaderboard.html', {
             'user_name': user_name,
         })

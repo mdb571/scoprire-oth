@@ -160,12 +160,14 @@
                 <tr>
                     <th><strong>Username</strong></th>
                     <th><strong>Score</strong></th>
+                    <th><strong>Last level Crossed at</strong></th>
                     
                 </tr>
-                {% for x,y in user_name  %}
+                {% for x,y,z in user_name  %}
                 <tr>
                     <td>{{x}}</td>
                     <td>{{y}}</td>
+                    <td>{{z}}</td>
                 </tr>
 
                 {% endfor %}
