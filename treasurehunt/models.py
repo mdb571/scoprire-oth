@@ -12,6 +12,16 @@ class Score(models.Model):
     def __str__(self):
         return self.user.username
 
+class level(models.Model):
+    l_number = models.IntegerField()
+    numuser = models.IntegerField(default=0)
+    accuracy = models.FloatField(default=0)
+    wrong = models.IntegerField(default=0)
+
+
+    def __unicode__(self):
+        return self.text
+
 
 class Answer(models.Model):
     answer = models.CharField(max_length=255)

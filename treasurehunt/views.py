@@ -90,6 +90,7 @@ def question(request):
     current_user = request.user
     sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
+    level = models.level.objects.get(l_number=sc.score+1)
     
     if sc.score == 30:
         return HttpResponse(
@@ -105,6 +106,9 @@ def question(request):
                     sc.score = sc.score + 1
                     sc.timestamp = datetime.datetime.now()
                     sc.save()
+                    level.numuser = level.numuser + 1
+                    level.accuracy = round(level.numuser/(float(level.numuser + level.wrong)),2)
+                    level.save()
                     return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
 
                 else:
@@ -116,6 +120,7 @@ def question(request):
                         'question_form': question_form,
                         'score': sc.score,
                         'question_fixed': question_fixed[sc.score],
+                        'level':level
                     })
         else:
             question_form = forms.Answer()
@@ -125,6 +130,7 @@ def question(request):
                 'question_form': question_form,
                 'score': sc.score,
                 'question_fixed': question_fixed[sc.score],
+                'level':level
             })
 
 

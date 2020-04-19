@@ -9,14 +9,12 @@
 		<div class="row">
 			<div class="col-lg-6 p-0">
 				<div class="contact-warp">
-					<div class="section-title">
-						
+					<strong>Level:{{level.l_number}} </strong>
 					
-					
-
-					</div>
 					<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt=""
 						style="padding-top:20px; padding-bottom:20px;">
+						<span>Users cleared:{{level.numuser}}</span><br><br>
+						<span>Accuracy:{{level.accuracy}}</span>
 
 					<form class="contact-from" method="POST" enctype="multipart/form-data">
 						{% csrf_token %}
@@ -25,12 +23,8 @@
 					</form>
 
 				</div>
+				
 			</div>
-			<div class="col-lg-6 p-0">
-				&nbsp
-
-			</div>
-
 		</div>
 	</div>
 </section>
