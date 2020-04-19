@@ -1,0 +1,52 @@
+{% extends "treasurehunt/base.html" %}
+{% block content %}
+{% load static %}
+
+
+<!--background audio--> 
+  
+  
+	  <audio autoplay="autoplay" loop="true"> 
+		 <source src="{% static 'music3.mp3' %}" />   
+	  </audio> 
+
+
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    	<link href="{% static 'css/stars.css' %}" rel="stylesheet">
+    	
+	</head>
+	<body class="hidden">
+		<div id='stars'></div>
+		<div id='stars2'></div>
+		<div id='stars3'></div>
+		<div id='title'>
+		
+  		<img src="{% static 'img/congrats.jpeg' %}" width="600px" height="350px">
+		  <br>
+
+  		<span>
+    		CORRECT ANSWER!
+		  </span>
+		  <br>
+		  <br>
+		  <br>
+		<div><a href="{% url 'treasurehunt:question' %}"><div class="button btn btn-outline-success"><b>Next Question</b></div></a></div>
+
+		</div>
+		
+		
+		
+  
+	  
+
+	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+    $('div.hidden').fadeIn(50000).removeClass('hidden');
+});
+</script>
+
+{% endblock content %}

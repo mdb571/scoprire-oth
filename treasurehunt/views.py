@@ -99,18 +99,18 @@ def question(request):
             question_form = forms.Answer(data=request.POST)
             if question_form.is_valid():
                 ans = question_form.cleaned_data['answer']
+                print('Level:',sc.score+1,'user:',current_user,'answer-attempted:',ans)
+
                 if ans.lower() == ans_fixed.ans_value():
                     sc.score = sc.score + 1
                     sc.timestamp = datetime.datetime.now()
                     sc.save()
+                    return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
+
                 else:
-                    return render(
-                        request, 'treasurehunt/question.html', {
-                            'question_form': question_form,
-                            'score': sc.score,
-                            'question_fixed': question_fixed[sc.score],
-                        })
+                    return render(request, 'treasurehunt/level_fail.html',{'score':sc.score})
             else:
+                
                 return render(
                     request, 'treasurehunt/question.html', {
                         'question_form': question_form,
@@ -119,6 +119,7 @@ def question(request):
                     })
         else:
             question_form = forms.Answer()
+        
         return render(
             request, 'treasurehunt/question.html', {
                 'question_form': question_form,
