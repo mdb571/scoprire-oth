@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 import datetime
 import time
+from termcolor import colored
 
 def index(request):
     return render(request, 'treasurehunt/index.html')
@@ -65,7 +66,8 @@ def user_login(request):
         else:
             print("Someone tried to login and failed")
             print("UserName : {} and password {} ".format(username, password))
-            return HttpResponse("Invalid Login Details")
+            messages.error(request, "Invalid Login Details!")
+            return render(request, 'treasurehunt/login.html')
     else:
         return render(request, 'treasurehunt/login.html')
 
@@ -99,7 +101,7 @@ def question(request):
             question_form = forms.Answer(data=request.POST)
             if question_form.is_valid():
                 ans = question_form.cleaned_data['answer']
-                print('Level:',sc.score+1,'user:',current_user,'answer-attempted:',ans)
+                
 
                 if ans.lower() == ans_fixed.ans_value():
                     sc.score = sc.score + 1
@@ -108,11 +110,15 @@ def question(request):
                     level.numuser = level.numuser + 1
                     level.accuracy = round(level.numuser/(float(level.numuser + level.wrong)),2)
                     level.save()
+                    anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
+                    print(colored(anslog,'green'))
                     return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
 
                 else:
                     level.wrong=level.wrong+1
                     level.save()
+                    anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
+                    print(colored(anslog,'red'))
                     return render(request, 'treasurehunt/level_fail.html',{'score':sc.score})
             else:
                 
