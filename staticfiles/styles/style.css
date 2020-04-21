@@ -18,15 +18,9 @@
 	margin: 0;
 	overflow: hidden;
 	background: linear-gradient(to bottom, #071431, #0a183d);
-	padding-bottom: 100px;
   }
   
-  .container{
-	padding-top: 140px !important;
-	padding-bottom: 100px;
-	width:50%;}
-   
-	.rain {
+  .rain {
 	position: absolute;
 	left: 0;
 	width: 100%;
@@ -263,7 +257,7 @@ body {
 	background-color:#06122f;
 	color: #c6c6c6;
 	font-family: 'Roboto Mono', monospace;
-	
+	overflow: scroll
 	
 }
 
@@ -840,7 +834,6 @@ Premium section
 	margin-bottom: 0;
 }
 
-
 /* ----------------
 Responsive
  -------------------*/
@@ -1038,7 +1031,7 @@ Contact page
 }
 
 .contact-warp {
-	padding: 100px 53px 104px 78px;
+	padding: 10px 53px 104px 78px;
 }
 
 .contact-warp p {
@@ -2015,7 +2008,7 @@ Responsive
 		padding: 40px;
 	}
 	.contact-warp {
-		padding: 100px 15px;
+		padding: 10px 15px;
 	}
 	.category-item .ci-link {
 		top: 26px;

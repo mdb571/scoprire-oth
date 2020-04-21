@@ -10,18 +10,18 @@
 		<div class="row">
 			<div class="col-lg-6 p-0">
 				
-					<strong>Level:{{level.l_number}} </strong>
+					<strong><h2>Level:{{level.l_number}} </h2></strong>
 					
-					<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt=""
-						style="padding-top:20px; padding-bottom:20px;">
+					<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt="">
 						<span>Users cleared:{{level.numuser}}</span><br><br>
 						<span>Accuracy:{{level.accuracy}}</span>
 					<div class="contact-warp">
 						<form class="contact-from" method="POST" enctype="multipart/form-data">
 							{% csrf_token %}
 							{{question_form.as_p}}
-							<input class="col-md-3 btn btn-outline-primary" type="submit" value="Submit">
 						</form>
+						<input class="col-md-3 btn btn-outline-primary" type="submit" value="Submit">
+						
 				    </div>
 				
 			</div>

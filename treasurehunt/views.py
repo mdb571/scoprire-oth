@@ -112,6 +112,8 @@ def question(request):
                     return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
 
                 else:
+                    level.wrong=level.wrong+1
+                    level.save()
                     return render(request, 'treasurehunt/level_fail.html',{'score':sc.score})
             else:
                 
