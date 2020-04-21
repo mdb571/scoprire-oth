@@ -145,7 +145,7 @@ def question(request):
 
 
 def leaderboard(request):
-    leader = models.Score.objects.all().order_by('-score','timestamp')
+    leader = models.Score.objects.all().filter(ban=False).order_by('-score','timestamp')
     
     if len(leader) >= 10:
         user_name = []
