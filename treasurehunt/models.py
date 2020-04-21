@@ -7,6 +7,7 @@ class Score(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     score = models.PositiveIntegerField(default=0)
+    ban=models.BooleanField(default=False)
     timestamp = models.DateTimeField(default=datetime.now)
 
     def __str__(self):

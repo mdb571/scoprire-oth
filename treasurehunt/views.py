@@ -93,52 +93,55 @@ def question(request):
     sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
-    
-    if sc.score == 10:
-        return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
+    if sc.ban==True:
+        return render(request, 'treasurehunt/banned.html',{'score':sc.score})
     else:
-        if request.method == 'POST':
-            question_form = forms.Answer(data=request.POST)
-            if question_form.is_valid():
-                ans = question_form.cleaned_data['answer']
-                
 
-                if ans.lower() == ans_fixed.ans_value():
-                    sc.score = sc.score + 1
-                    sc.timestamp = datetime.datetime.now()
-                    sc.save()
-                    level.numuser = level.numuser + 1
-                    level.accuracy = round(level.numuser/(float(level.numuser + level.wrong)),2)
-                    level.save()
-                    anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
-                    print(colored(anslog,'green'))
-                    return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
-
-                else:
-                    level.wrong=level.wrong+1
-                    level.save()
-                    anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
-                    print(colored(anslog,'red'))
-                    return render(request, 'treasurehunt/level_fail.html',{'score':sc.score})
-            else:
-                
-                return render(
-                    request, 'treasurehunt/question.html', {
-                        'question_form': question_form,
-                        'score': sc.score,
-                        'question_fixed': question_fixed[sc.score],
-                        'level':level
-                    })
+        if sc.score == 10:
+            return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
         else:
-            question_form = forms.Answer()
-        
-        return render(
-            request, 'treasurehunt/question.html', {
-                'question_form': question_form,
-                'score': sc.score,
-                'question_fixed': question_fixed[sc.score],
-                'level':level
-            })
+            if request.method == 'POST':
+                question_form = forms.Answer(data=request.POST)
+                if question_form.is_valid():
+                    ans = question_form.cleaned_data['answer']
+                    
+
+                    if ans.lower() == ans_fixed.ans_value():
+                        sc.score = sc.score + 1
+                        sc.timestamp = datetime.datetime.now()
+                        sc.save()
+                        level.numuser = level.numuser + 1
+                        level.accuracy = round(level.numuser/(float(level.numuser + level.wrong)),2)
+                        level.save()
+                        anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
+                        print(colored(anslog,'green'))
+                        return render(request, 'treasurehunt/level_transition.html',{'score':sc.score})
+
+                    else:
+                        level.wrong=level.wrong+1
+                        level.save()
+                        anslog='Level: '+str(sc.score+1) +' user: '+str(current_user)+' answer: '+str(ans)
+                        print(colored(anslog,'red'))
+                        return render(request, 'treasurehunt/level_fail.html',{'score':sc.score})
+                else:
+                    
+                    return render(
+                        request, 'treasurehunt/question.html', {
+                            'question_form': question_form,
+                            'score': sc.score,
+                            'question_fixed': question_fixed[sc.score],
+                            'level':level
+                        })
+            else:
+                question_form = forms.Answer()
+            
+            return render(
+                request, 'treasurehunt/question.html', {
+                    'question_form': question_form,
+                    'score': sc.score,
+                    'question_fixed': question_fixed[sc.score],
+                    'level':level
+                })
 
 
 def leaderboard(request):

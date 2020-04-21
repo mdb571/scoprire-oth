@@ -1,0 +1,39 @@
+{% extends "treasurehunt/base.html" %}
+{% block content %}
+{% load static %}
+
+
+	<body class="hidden">
+		<div id='stars'></div>
+		<div id='stars2'></div>
+		<div id='stars3'></div>
+		<div id='title'>
+		
+  		<img src="{% static 'img/ban.jpeg' %}" width="600px" height="350px">
+		  <br>
+
+  		<span>
+    		SORRY You have been banned temporarily!.Plz try after 30 min.
+		  </span>
+		  <br>
+		  <br>
+		  <br>
+		<div><a href="{% url 'treasurehunt:logout' %}"><div class="button btn btn-outline-danger"><b>Logout</b></div></a></div>
+
+		</div>
+		
+		
+		
+  
+	  
+
+	</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+    $('div.hidden').fadeIn(50000).removeClass('hidden');
+});
+</script>
+
+{% endblock content %}
