@@ -97,7 +97,7 @@ def question(request):
         return render(request, 'treasurehunt/banned.html',{'score':sc.score})
     else:
 
-        if sc.score == 10:
+        if sc.score == 20:
             return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
         else:
             if request.method == 'POST':
