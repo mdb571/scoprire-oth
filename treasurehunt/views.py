@@ -92,9 +92,8 @@ def question(request):
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
     
-    if sc.score == 30:
-        return HttpResponse(
-            "<h3>Congratulations on Completing SCOPRIRE.Pls contact our skilter representative Johnjo Benny with this screenshot to claim your prize</h3>")
+    if sc.score == 10:
+        return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
     else:
         if request.method == 'POST':
             question_form = forms.Answer(data=request.POST)
