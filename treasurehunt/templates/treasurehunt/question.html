@@ -19,6 +19,7 @@
 						<form class="contact-from" method="POST" enctype="multipart/form-data">
 							{% csrf_token %}
 							{{question_form.as_p}}
+							<input class="col-md-3 btn btn-outline-primary" type="submit" value="Submit">
 						</form>
 						<input class="col-md-3 btn btn-outline-primary" type="submit" value="Submit">
 						
