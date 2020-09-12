@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load pwa %}
 {% load static%}
+{% load socialaccount %}
 <html lang="zxx">
 
 <head>
@@ -62,8 +63,9 @@
                 <a href="{% url 'treasurehunt:logout' %}" class="register">Logout</a>
 
                 {% else %}
-                <a href="{% url 'treasurehunt:login' %}" class="login">Login</a>
-                <a href="{% url 'treasurehunt:register' %}" class="register">Create an account</a>
+                <a href="{% provider_login_url 'google' %}" class="login">Login With Google</a>
+
+                <!-- <a href="{% url 'treasurehunt:register' %}" class="register">Create an account</a> -->
                 {% endif  %}
             </div>
 
