@@ -49,12 +49,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'treasurehunt',
     'pwa',
-    'allauth’, 
-    'allauth.account’,
-    'allauth.socialaccount’,
-    'allauth.socialaccount.providers.google’,
+    'allauth', 
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     
 ]
 
@@ -124,12 +125,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
- 'django.contrib.auth.backends.ModelBackend’,
- 'allauth.account.auth_backends.AuthenticationBackend’,
+ 'django.contrib.auth.backends.ModelBackend',
+ 'allauth.account.auth_backends.AuthenticationBackend',
  )
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/question/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
