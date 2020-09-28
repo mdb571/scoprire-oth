@@ -15,61 +15,96 @@ def index(request):
     return render(request, 'treasurehunt/index.html')
 
 
-# def register(request):
-#     if request.user.is_authenticated:
-#         return HttpResponseRedirect(reverse('treasurehunt:question'))
-#     registered = False
+def register(request):
+<<<<<<< HEAD
+=======
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('treasurehunt:question'))
+    registered = False
 
-#     if request.method == 'POST':
-#         user_form = forms.UserForm(data=request.POST)
-#         if user_form.is_valid():
-#             passmain = user_form.cleaned_data['password']
-#             passverify = user_form.cleaned_data['confirm_password']
-#             if passmain == passverify:
-#                 user = user_form.save()
-#                 user.set_password(user.password)
-#                 user.save()
+    if request.method == 'POST':
+        user_form = forms.UserForm(data=request.POST)
+        if user_form.is_valid():
+            passmain = user_form.cleaned_data['password']
+            passverify = user_form.cleaned_data['confirm_password']
+            if passmain == passverify:
+                user = user_form.save()
+                user.set_password(user.password)
+                user.save()
 
-#                 score = models.Score()
-#                 score.user = user
-#                 score.save()
+                score = models.Score()
+                score.user = user
+                score.save()
 
-#                 registered = True
-#             else:
-#                 return HttpResponse("Password Don't Match")
-#         else:
-#             print(user_form.errors)
-#     else:
-#         user_form = forms.UserForm()
+                registered = True
+            else:
+                return HttpResponse("Password Don't Match")
+        else:
+            print(user_form.errors)
+    else:
+        user_form = forms.UserForm()
 
-#     return render(request, 'treasurehunt/signup.html', {
-#         'user_form': user_form,
-#         'registered': registered
-#     })
+    return render(request, 'treasurehunt/signup.html', {
+        'user_form': user_form,
+        'registered': registered
+    })
 
 
 def user_login(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('treasurehunt:question'))
+    registered = False
+
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        user_form = forms.UserForm(data=request.POST)
+        if user_form.is_valid():
+            passmain = user_form.cleaned_data['password']
+            passverify = user_form.cleaned_data['confirm_password']
+            if passmain == passverify:
+                user = user_form.save()
+                user.set_password(user.password)
+                user.save()
 
-        user = authenticate(username=username, password=password)
+                score = models.Score()
+                score.user = user
+                score.save()
 
-        if user:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse('treasurehunt:question'))
+                registered = True
             else:
-                return HttpResponse("ACCOUNT NOT ACTIVE")
+                return HttpResponse("Password Don't Match")
         else:
-            print("Someone tried to login and failed")
-            print("UserName : {} and password {} ".format(username, password))
-            messages.error(request, "Invalid Login Details!")
-            return render(request, 'treasurehunt/login.html')
+            print(user_form.errors)
     else:
-        return render(request, 'treasurehunt/login.html')
+        user_form = forms.UserForm()
+
+    return render(request, 'treasurehunt/signup.html', {
+        'user_form': user_form,
+        'registered': registered
+    })
+
+
+# def user_login(request):
+#     if request.user.is_authenticated:
+#         return HttpResponseRedirect(reverse('treasurehunt:question'))
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+
+#         user = authenticate(username=username, password=password)
+
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 return HttpResponseRedirect(reverse('treasurehunt:question'))
+#             else:
+#                 return HttpResponse("ACCOUNT NOT ACTIVE")
+#         else:
+#             print("Someone tried to login and failed")
+#             print("UserName : {} and password {} ".format(username, password))
+#             messages.error(request, "Invalid Login Details!")
+#             return render(request, 'treasurehunt/login.html')
+#     else:
+#         return render(request, 'treasurehunt/login.html')
 
 def invalid_login(request):
     return render(request,'treasurehunt/invalidlogin.html')
@@ -83,8 +118,6 @@ def user_logout(request):
 
 @login_required
 def question(request):
-    
-    
 
     question_fixed = [
         '0', '1', '2', '3', '4', '5', '6',
@@ -92,12 +125,7 @@ def question(request):
         '11', '12', '13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29'  ]
 
     current_user = request.user
-    try:
-        sc = models.Score.objects.get(user__exact=current_user)
-    except:
-        score = models.Score()
-        score.user = current_user
-        score.save()
+    sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
     if sc.ban==True:

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'admin_honeypot',
     'treasurehunt',
     'pwa',
     'allauth', 
@@ -129,7 +130,8 @@ AUTHENTICATION_BACKENDS = (
  'allauth.account.auth_backends.AuthenticationBackend',
  )
 
-SITE_ID =2
+
+SITE_ID = 1
 LOGIN_REDIRECT_URL = '/question/'
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -164,4 +166,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/accounts/google/login'
