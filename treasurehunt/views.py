@@ -16,8 +16,6 @@ def index(request):
 
 
 def register(request):
-<<<<<<< HEAD
-=======
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('treasurehunt:question'))
     registered = False
