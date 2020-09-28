@@ -29,7 +29,7 @@ class Answer(models.Model):
 
 
 class AnswerChecker(models.Model):
-    index = models.PositiveIntegerField(default=0, unique=True)
+    index = models.PositiveIntegerField(default=1, unique=True)
     answer = models.CharField(max_length=255)
 
     def __str__(self):
