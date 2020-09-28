@@ -129,6 +129,7 @@ def question(request):
         score = models.Score()
         score.user = current_user
         score.save()
+        sc = models.Score.objects.get(user__exact=current_user)
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
     if sc.ban==True:
