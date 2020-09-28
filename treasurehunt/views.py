@@ -123,7 +123,12 @@ def question(request):
         '11', '12', '13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29'  ]
 
     current_user = request.user
-    sc = models.Score.objects.get(user__exact=current_user)
+    try:
+        sc = models.Score.objects.get(user__exact=current_user)
+    except:
+        score = models.Score()
+        score.user = current_user
+        score.save()
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
     if sc.ban==True:
