@@ -35,8 +35,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'treasurehunt/templates/treasurehunt')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v2me!)*-^k!hkug&%k&x9n4haz!u47ej+i-c72%f6!e!kh6kl2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
+#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','electrojunk.herokuapp.com']
 
