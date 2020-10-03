@@ -13,8 +13,7 @@
 					<strong><h2>Level:{{level.l_number}} </h2></strong>
 					
 					<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt="">
-						<span>Users cleared:{{level.numuser}}</span><br><br>
-						<span>Accuracy:{{level.accuracy}}</span>
+						
 					<div class="contact-warp">
 						<form class="contact-from" method="POST" enctype="multipart/form-data">
 							{% csrf_token %}
