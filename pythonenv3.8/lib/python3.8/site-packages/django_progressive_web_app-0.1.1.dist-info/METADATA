@@ -1,0 +1,13 @@
+Metadata-Version: 2.0
+Name: django-progressive-web-app
+Version: 0.1.1
+Summary: A Django app to include a manifest.json and Service Worker instance to enable progressive web app behavior 
+Home-page: http://github.com/svvitale/django-progressive-web-app
+Author: Scott Vitale
+Author-email: svvitale@gmail.com
+License: MIT License
+Description-Content-Type: UNKNOWN
+
+django-progressive-web-app
+
+
