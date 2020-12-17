@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v2me!)*-^k!hkug&%k&x9n4haz!u47
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = 'False'
 
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','ectreasurehunt.herokuapp.com','coherencehunt.herokuapp.com']
 
