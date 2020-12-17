@@ -130,13 +130,13 @@ def question(request):
         score.user = current_user
         score.save()
         sc = models.Score.objects.get(user__exact=current_user)
-
+    if sc.score == 20:
+        return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
     ans_fixed = models.AnswerChecker.objects.get(index__exact=sc.score)
     level = models.level.objects.get(l_number=sc.score+1)
     if sc.ban==True:
         return render(request, 'treasurehunt/banned.html',{'score':sc.score})
-    elif sc.score == 20:
-            return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
+    
     else:
             if request.method == 'POST':
                 question_form = forms.Answer(data=request.POST)
