@@ -11,13 +11,18 @@
 			<div class="col-lg-6 p-0">
 				
 					<strong><h2>Level:{{level.l_number}} </h2></strong>
-					
+					{% if level.l_number == 4 or level.l_number == 8 or level.l_number == 15 %}
+					<video width="400px" height="350px" autoplay>
+						<source src="{% static 'images/'%}{{question_fixed}}.mp4" type="video/mp4">
+					</video>
+					{% else %}
 					<img src="{% static 'images/'%}{{question_fixed}}.png" type="image/png" width="600px" height="350px" alt="">
+					{% endif %}
 						<span>Users cleared:{{level.numuser}}</span><br><br>
 						<span>Accuracy:{{level.accuracy}}</span>
 					<div class="contact-warp">
 						<form class="contact-from" method="POST" enctype="multipart/form-data">
-							{% csrf_token %}
+							{%  csrf_token  %}
 							{{question_form.as_p}}
 							<input  class="col-md-3 btn btn-outline-primary" type="submit" value="Submit">
 						</form>
