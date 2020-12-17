@@ -11,7 +11,7 @@
 			<div class="col-lg-6 p-0">
 				
 					<strong><h2>Level:{{level.l_number}} </h2></strong>
-					{% if level.l_number == 4 or level.l_number == 8 or level.l_number == 15 or level.l_number == 19 %}
+					{% if level.l_number == 4 or level.l_number == 15 or level.l_number == 19 %}
 					<video width="400px" height="350px" autoplay>
 						<source src="{% static 'images/'%}{{question_fixed}}.mp4" type="video/mp4">
 					</video>
