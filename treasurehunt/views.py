@@ -135,11 +135,9 @@ def question(request):
     level = models.level.objects.get(l_number=sc.score+1)
     if sc.ban==True:
         return render(request, 'treasurehunt/banned.html',{'score':sc.score})
-    else:
-
-        if sc.score == 20:
+    elif sc.score == 20:
             return render(request, 'treasurehunt/hunt_win.html',{'score':sc.score})
-        else:
+    else:
             if request.method == 'POST':
                 question_form = forms.Answer(data=request.POST)
                 if question_form.is_valid():
