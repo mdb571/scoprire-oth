@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    {% progressive_web_app_meta %}
+
+    <title>'ELECTROJUNK | The 24hr Online-Treasure-Hunt!</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Encender The 24 Online-Treasure-Hunt">
+    <meta name="keywords" content="Quiz, Treasure Hunt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
+    <!-- TODO -->
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="{% static 'styles/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/slicknav.min.css' %}" />
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+
+
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Header section -->
+    <header class="header-section clearfix">
+        <a href="{% url 'treasurehunt:index' %}" class="site-logo">
+            ELECTROJUNK
+        </a>
+        <div class="header-right">
+            {% if user.is_authenticated %}
+            <a href="#" class="login">Your Score: {{score}}</a>
+            {% else %}
+            <a href="{% static 'files/Rules.pdf'%}" class="hr-btn">Rules</a>
+            {% endif %}
+            <span>|</span>
+            <div class="user-panel">
+                {% if user.is_authenticated %}
+                <a href="#" class="login">{{user.username}}</a>
+                <a href="{% url 'treasurehunt:logout' %}" class="register">Logout</a>
+
+                {% else %}
+                <a href="{% provider_login_url 'google' %}" class="login">Login With Google</a>
+
+                {% endif %}
+            </div>
+
+        </div>
+        <ul class="main-menu">
+            <!-- 			
+             <li><a href="#">About</a> -->
+            <li><a href="{% url 'treasurehunt:question' %}">Question</a></li>
+            <li><a href="{% url 'treasurehunt:leaderboard' %}">Leaderboard</a></li>
+
+        </ul>
+    </header>
+    <!-- Header section end -->
+    <!-- Hero section -->
+
+    <section class="mazha back-row-toggle splat-toggle">
+
+        <section class="hero-section">
+            <div class="hero-slider owl-carousel">
+                <div class="hs-item">
+                    <div class="container">
+
+
+                        {% block content%} {% endblock content%}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+    </section>
+
+    <footer class="footer">
+
+        <div class="center-block">
+            <p>
+                Made with ♥ <br>
+                This website is written and maintained by <strong>Ａｄｖｅｎｔｕｒｅ</strong> and hosted on
+                <strong>Heroku</strong>
+            </p>
+        </div>
+    </footer>
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

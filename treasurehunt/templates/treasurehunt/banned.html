@@ -1,39 +1,64 @@
 {% extends "treasurehunt/base.html" %}
-{% block content %}
 {% load static %}
+{% block content %}
 
 
-	<body class="hidden">
-		<div id='stars'></div>
-		<div id='stars2'></div>
-		<div id='stars3'></div>
-		<div id='title'>
-		
-  		<img src="{% static 'img/ban.jpeg' %}" width="600px" height="350px">
-		  <br>
 
-  		<span>
-    		SORRY You have been banned temporarily!.Plz try after 30 min.
-		  </span>
-		  <br>
-		  <br>
-		  <br>
-		<div><a href="{% url 'treasurehunt:logout' %}"><div class="button btn btn-outline-danger"><b>Logout</b></div></a></div>
+<!-- Product Section Begin -->
+<section class="product-page spad">
+	<div class="container">
+	
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="product__page__content ">
+					<div class="product__page__title">
+						<div class="row ">
+							<div class="col-lg-8 col-md-8 col-sm-6">
+								<div class="section-title">
+									<h1 class="hero-text">Banned 😞</h1>
+									<p class="text-muted">Sorry You have been banned temporarily! Please try after 30 min.</p>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6">
 
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="blog__details__form" style="width:100%; 
+						/* margin-bottom:50px; */
+						">
+							<!-- <a href="{% url 'treasurehunt:question' %}" >
+								<button type="button" class="site-btn">
+									Try Again
+								</button>
+							</a> -->
+							
+						</div>
+						<div class="blog__details__text">
+							
+                        </div>
+						<div class="blog__details__item__text" style="width:100%">
+							<!-- <div style="width:100%;height:0;padding-bottom:42%;position:relative;"><iframe src="https://giphy.com/embed/fe4dDMD2cAU5RfEaCU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/ban-banned-admin-fe4dDMD2cAU5RfEaCU">via GIPHY</a></p> -->
+							<img src="{% static 'img/ban.gif' %}" alt="" style="width:100%">
+							
+						</div>
+					
+						<div class="blog__details__form mt-3" style="width:100%">
+							<a href="{% url 'treasurehunt:logout' %}" >
+								<button class="c-button c-button--primary">Logout</button>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
-		
-		
-		
-  
-	  
-
-	</body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script>
-	$(document).ready(function () {
-    $('div.hidden').fadeIn(50000).removeClass('hidden');
-});
-</script>
+	</div>
+	</div>
+</section>
+<!-- Product Section End -->
 
 {% endblock content %}
+

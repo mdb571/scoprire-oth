@@ -1,0 +1,21 @@
+{% extends "treasurehunt/base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="row">
+						
+    <div class="col-lg-12" style="margin-top: 100px;">
+        <div class="text-center">
+            <h5 class="display-4 primary" style="font-family: 'Teko', sans-serif;">Get. Set. Go.</h5>
+           
+            <p class="text-center">Get ready and brush up your technical skills as ENCENDER launched by IETE SF TKMCE brings to you <strong>'ELECTROJUNK'</strong>, a 24hour online treasure hunt on electronic technologies . </p>
+
+            <br><a href="{% url 'treasurehunt:question' %}" class="">Start Quiz</a><br><br><br>
+
+            <a href="{% url 'treasurehunt:leaderboard' %}" class="">Leaderboard</a>
+        </div>
+    </div>
+
+{% endblock content %}

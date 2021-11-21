@@ -254,7 +254,7 @@
 
 body {
 	height: 100%;
-	background-color:#06122f;
+	background-color:#004bff;
 	color: #c6c6c6;
 	font-family: 'Roboto Mono', monospace;
 	overflow: scroll
@@ -465,7 +465,7 @@ Header section
 .header-section {
 	padding-left: 55px;
 	padding-right: 72px;
-	background: #071431;
+	/* background: #071431; */
 }
 
 .site-logo {
